@@ -35,12 +35,13 @@ int main(){
     info.push_back(item1);
     
     std::array<int, 4> arrayTest = {0, 0, 2, 3};
-    std::array<int, 4> arrayTest2 = {4, 4, 2 * static_cast<int>(i)};
     NotSoSimpleStruct a;
-    a.data.p = arrayTest2;
-    ex2::NamespaceStruct nstruct;
-    nstruct.x = static_cast<int>(i);
-    std::array<ex2::NamespaceStruct, 4> structArrayTest = {nstruct, nstruct, nstruct, nstruct};
+    a.data.x = static_cast<int>(i);
+    a.data.y = static_cast<int>(i) + 1;
+    SimpleStruct nstruct;
+    nstruct.x = static_cast<int>(i) + 2;
+    nstruct.y = static_cast<int>(i) + 3;
+    std::array<SimpleStruct, 4> structArrayTest = {nstruct, nstruct, nstruct, nstruct};
     auto array = ExampleWithArray(a, arrayTest, arrayTest, arrayTest, arrayTest, structArrayTest);
     array.myArray(1, i);
     array.arrayStruct(a);
