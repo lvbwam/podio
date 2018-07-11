@@ -33,7 +33,7 @@ void processEvent(podio::EventStore& store, bool verboser, unsigned eventNum) {
     throw std::runtime_error("Collection 'arrays' should be present");
   }
     
-    auto& structs = store.get<ExampleWithArraymeCollection>("structs");
+    auto& structs = store.get<ExampleWithStructCollection>("structs");
     if (structs.isValid() && structs.size() != 0) {
         auto structure = structs[0];
         if (structure.mystruct().data.x != eventNum) {

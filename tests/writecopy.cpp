@@ -54,7 +54,7 @@ int main(){
     b.data.x = static_cast<int>(i);
     b.data.y = static_cast<int>(i) + 1;
     auto structure = ExampleWithStruct(b);
-    structs.push_back(structure)
+    structs.push_back(structure);
     
     writer.writeEvent();
     store.clearCollections();
