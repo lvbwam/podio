@@ -221,7 +221,7 @@ TEST_CASE("Extracode") {
   ev.setNumber(42) ;
   REQUIRE(ev.getNumber() == 42);
 
-  int ia[3] = { 1 , 2 , 3 } ;
+  int ia[2] = { 1 , 2 } ;
   auto simple = SimpleStruct( ia ) ;
   REQUIRE( simple.x == 1 );
   REQUIRE( simple.y == 2 );
