@@ -39,14 +39,6 @@ datatypes :
 
 
 
-  #ExampleWithVectors:
-    #Description: "Datatype with a vector member"
-    #Author: "Ali Fatemi"
-    #Members:
-      #- NotSoSimpleStruct vectorStruct // component that contains an vector
-      #- std::vector<int> myVector // vector-member
-      #- std::vector<ex2::NamespaceStruct> structVector // an vector containing structs
-
   ExampleWithArrayme:
     Description: "Datatype with an array member"
     Author: "Ali Fatemi"

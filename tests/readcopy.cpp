@@ -10,22 +10,22 @@
 
 // test data model
 
-#include "ExampleWithArrayCollection.h"
+#include "ExampleWithArraymeCollection.h"
 
 int glob = 0;
 
 void processEvent(podio::EventStore& store, bool verboser, unsigned eventNum) {
 
-  auto& arrays = store.get<ExampleWithArrayCollection>("arrays");
+  auto& arrays = store.get<ExampleWithArraymeCollection>("arrays");
   if (arrays.isValid() && arrays.size() != 0) {
     auto array = arrays[0];
     if (array.myArray(1) != eventNum) {
       throw std::runtime_error("Array not properly set.");
     }
-    if (array.arrayStruct().data.p.at(2) != 2*eventNum) {
+    if (array.arrayStruct().data.x != eventNum) {
       throw std::runtime_error("Array not properly set.");
     }
-    if (array.structArray(0).x != eventNum) {
+    if (array.structArray(0).x != eventNum+2) {
       throw std::runtime_error("Array of struct not properly set.");
     }
   } else {
