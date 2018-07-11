@@ -42,7 +42,7 @@ int main(){
     nstruct.x = static_cast<int>(i) + 2;
     nstruct.y = static_cast<int>(i) + 3;
     std::array<SimpleStruct, 4> structArrayTest = {nstruct, nstruct, nstruct, nstruct};
-    auto array = ExampleWithArray(a, arrayTest, arrayTest, arrayTest, arrayTest, structArrayTest);
+    auto array = ExampleWithArray(a, arrayTest, structArrayTest);
     array.myArray(1, i);
     array.arrayStruct(a);
     arrays.push_back(array);
