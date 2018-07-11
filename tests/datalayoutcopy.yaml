@@ -1,0 +1,31 @@
+---
+options :
+  # should getters / setters be prefixed with get / set?
+  getSyntax: False
+  # should POD members be exposed with getters/setters in classes that have them as members?
+  exposePODMembers: True
+
+components :
+  SimpleStruct:
+    x : int
+    y : int
+    ExtraCode :
+      declaration: "
+      SimpleStruct() : x(0),y(0) {}
+      SimpleStruct( const int* v) : x(v[0]),y(v[1]) {}
+      "
+
+
+datatypes :
+
+  EventInfo:
+    Description : "Event info"
+    Author : "B. Hegner"
+    Members :
+     - int Number // event number
+    ExtraCode :
+       const_declaration: "int getNumber() const; "
+       const_implementation: "int {name}::getNumber() const { return Number(); } "
+       declaration: "void setNumber(int n) { Number( n ) ; } "
+
+  
