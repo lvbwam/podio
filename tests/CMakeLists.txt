@@ -64,6 +64,6 @@ set_property(TEST pyunittest
                       LD_LIBRARY_PATH=${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/tests:$ENV{LD_LIBRARY_PATH}
                       PYTHONPATH=${CMAKE_INSTALL_PREFIX}/python:$ENV{PYTHONPATH}
                       ROOT_INCLUDE_PATH=${CMAKE_SOURCE_DIR}/tests/datamodel)
-set_property(TEST pyunittest PROPERTY DEPENDS write)
+set_property(TEST pyunittest PROPERTY DEPENDS writecopy)
 
 add_test(NAME unittest COMMAND unittest)
