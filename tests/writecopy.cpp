@@ -1,6 +1,6 @@
 // Data model
 #include "EventInfoCollection.h"
-#include "ExampleWithArrayCollection.h"
+#include "ExampleWithArraymeCollection.h"
 #include "StructWithArray.h"
 
 // STL
