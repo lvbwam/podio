@@ -25,6 +25,36 @@
               <field name="m_registry" transient="true"/>
               <field name="m_container" transient="true"/>
             </class>
+          <class name="std::vector<ExampleWithStructData>" />
+
+            <class name="ExampleWithStructData">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<ExampleWithStruct>" />
+
+            <class name="ExampleWithStruct">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<ConstExampleWithStruct>" />
+
+            <class name="ConstExampleWithStruct">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<ExampleWithStructCollection>" />
+
+            <class name="ExampleWithStructCollection">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<ExampleWithStructObj>" />
+
+            <class name="ExampleWithStructObj">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
           <class name="std::vector<EventInfoData>" />
 
             <class name="EventInfoData">

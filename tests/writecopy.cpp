@@ -1,6 +1,7 @@
 // Data model
 #include "EventInfoCollection.h"
 #include "ExampleWithArraymeCollection.h"
+#include "ExampleWithStructCollection.h"
 //#include "StructWithArray.h"
 
 // STL
@@ -20,8 +21,10 @@ int main(){
 
   auto& info       = store.create<EventInfoCollection>("info");
   auto& arrays     = store.create<ExampleWithArraymeCollection>("arrays");
+  auto& structs     = store.create<ExampleWithStructCollection>("structs");
   writer.registerForWrite("info");
   writer.registerForWrite("arrays");
+  writer.registerForWrite("structs");
 
   unsigned nevents = 2000;
 
@@ -47,6 +50,12 @@ int main(){
     array.arrayStruct(a);
     arrays.push_back(array);
 
+    NotSoSimpleStruct b;
+    b.data.x = static_cast<int>(i);
+    b.data.y = static_cast<int>(i) + 1;
+    auto structure = ExampleWithStruct(b);
+    structs.push_back(structure)
+    
     writer.writeEvent();
     store.clearCollections();
   }

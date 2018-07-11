@@ -11,6 +11,7 @@
 // test data model
 
 #include "ExampleWithArraymeCollection.h"
+#include "ExampleWithStructCollection.h"
 
 int glob = 0;
 
@@ -31,6 +32,19 @@ void processEvent(podio::EventStore& store, bool verboser, unsigned eventNum) {
   } else {
     throw std::runtime_error("Collection 'arrays' should be present");
   }
+    
+    auto& structs = store.get<ExampleWithArraymeCollection>("structs");
+    if (structs.isValid() && structs.size() != 0) {
+        auto structure = structs[0];
+        if (structure.mystruct().data.x != eventNum) {
+            throw std::runtime_error("structs not properly set.");
+        }
+        if (structure.mystruct().data.y != eventNum + 1) {
+            throw std::runtime_error("structs not properly set.");
+        }
+    } else {
+        throw std::runtime_error("Collection 'structss' should be present");
+    }
 }
 
 int main(){
