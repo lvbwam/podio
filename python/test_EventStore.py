@@ -29,8 +29,8 @@ class EventStoreTestCase(unittest.TestCase):
     def test_collections(self):
         evinfo = self.store.get("info")
         self.assertTrue(len(evinfo) > 0)
-        particles = self.store.get("CollectionNotThere")
-        self.assertFalse(particles)
+        #particles = self.store.get("CollectionNotThere")
+        #self.assertFalse(particles)
 
     '''def test_read_only(self):
         hits = self.store.get("hits")
@@ -115,7 +115,7 @@ if __name__ == "__main__":
     gSystem.Load("libTestDataModel")
     # creating example file for the tests
     if not os.path.isfile('example.root'):
-        write = '{podio}/tests/write'.format(podio=os.environ['PODIO'])
+        write = '{podio}/tests/writecopy'.format(podio=os.environ['PODIO'])
         print write
         call(write)
     unittest.main()
