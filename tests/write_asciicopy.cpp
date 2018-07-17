@@ -21,9 +21,9 @@ int main(){
   auto& info       = store.create<EventInfoCollection>("info");
   auto& arrays     = store.create<ExampleWithArraymeCollection>("arrays");
   auto& structs     = store.create<ExampleWithStructCollection>("structs");
-  writer.registerForWrite("info");
-  writer.registerForWrite("arrays");
-  writer.registerForWrite("structs");
+  writer.registerForWrite<EventInfoCollection>("info");
+  writer.registerForWrite<ExampleWithArraymeCollection>("arrays");
+  writer.registerForWrite<ExampleWithStructCollection>("structs");
 
   unsigned nevents=1;//2000;
 
