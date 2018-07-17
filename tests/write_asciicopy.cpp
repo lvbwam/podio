@@ -25,7 +25,7 @@ int main(){
   writer.registerForWrite<ExampleWithArraymeCollection>("arrays");
   writer.registerForWrite<ExampleWithStructCollection>("structs");
 
-  unsigned nevents=1;//2000;
+  unsigned nevents=200;
 
   for(unsigned i=0; i<nevents; ++i) {
     if(i % 1000 == 0) {
@@ -36,18 +36,18 @@ int main(){
     item1.Number(i);
     info.push_back(item1);
     
-      std::array<int, 4> arrayTest = {0, 0, 2, 3};
-      NotSoSimpleStruct a;
-      a.data.x = static_cast<int>(i);
-      a.data.y = static_cast<int>(i) + 1;
-      SimpleStruct nstruct;
-      nstruct.x = static_cast<int>(i) + 2;
-      nstruct.y = static_cast<int>(i) + 3;
-      std::array<SimpleStruct, 4> structArrayTest = {nstruct, nstruct, nstruct, nstruct};
-      auto array = ExampleWithArrayme(a, arrayTest, structArrayTest);
-      array.myArray(1, i);
-      array.arrayStruct(a);
-      arrays.push_back(array);
+      //std::array<int, 4> arrayTest = {0, 0, 2, 3};
+      //NotSoSimpleStruct a;
+      //a.data.x = static_cast<int>(i);
+      //a.data.y = static_cast<int>(i) + 1;
+      //SimpleStruct nstruct;
+      //nstruct.x = static_cast<int>(i) + 2;
+      //nstruct.y = static_cast<int>(i) + 3;
+      //std::array<SimpleStruct, 4> structArrayTest = {nstruct, nstruct, nstruct, nstruct};
+      //auto array = ExampleWithArrayme(a, arrayTest, structArrayTest);
+      //array.myArray(1, i);
+      //array.arrayStruct(a);
+      //arrays.push_back(array);
       
       NotSoSimpleStruct b;
       b.data.x = static_cast<int>(i);
