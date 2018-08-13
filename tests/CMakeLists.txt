@@ -61,6 +61,10 @@ add_test(NAME readcopy COMMAND readcopy)
 set_property(TEST readcopy PROPERTY ENVIRONMENT LD_LIBRARY_PATH=${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/tests:$ENV{LD_LIBRARY_PATH})
 set_property(TEST readcopy PROPERTY DEPENDS writecopy)
 
+add_test(NAME read_asciicopy COMMAND read_asciicopy)
+set_property(TEST read_asciicopy PROPERTY ENVIRONMENT LD_LIBRARY_PATH=${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/tests:$ENV{LD_LIBRARY_PATH})
+set_property(TEST read_asciicopy PROPERTY DEPENDS write_asciicopy )
+
 add_test( NAME pyunittest COMMAND python -m unittest discover -s ${CMAKE_INSTALL_PREFIX}/python)
 set_property(TEST pyunittest
              PROPERTY ENVIRONMENT
@@ -70,3 +74,5 @@ set_property(TEST pyunittest
 set_property(TEST pyunittest PROPERTY DEPENDS writecopy)
 
 add_test(NAME unittest COMMAND unittest)
+
+add_subdirectory(ASCIItest)

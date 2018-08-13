@@ -19,10 +19,10 @@ int main(){
   auto writer = podio::ASCIIWriter("example.txt", &store);
 
   auto& info       = store.create<EventInfoCollection>("info");
-  auto& arrays     = store.create<ExampleWithArraymeCollection>("arrays");
+  //auto& arrays     = store.create<ExampleWithArraymeCollection>("arrays");
   auto& structs     = store.create<ExampleWithStructCollection>("structs");
   writer.registerForWrite<EventInfoCollection>("info");
-  writer.registerForWrite<ExampleWithArraymeCollection>("arrays");
+  //writer.registerForWrite<ExampleWithArraymeCollection>("arrays");
   writer.registerForWrite<ExampleWithStructCollection>("structs");
 
   unsigned nevents=200;

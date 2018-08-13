@@ -1,0 +1,121 @@
+<lcgdict>
+    <selection>
+
+          <class name="std::vector<SimpleStruct>" />
+
+            <class name="SimpleStruct">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<ex2::NamespaceInNamespaceStruct>" />
+
+            <class name="ex2::NamespaceInNamespaceStruct">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<NotSoSimpleStruct>" />
+
+            <class name="NotSoSimpleStruct">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<ex2::NamespaceStruct>" />
+
+            <class name="ex2::NamespaceStruct">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<ExampleWithStructData>" />
+
+            <class name="ExampleWithStructData">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<ExampleWithStruct>" />
+
+            <class name="ExampleWithStruct">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<ConstExampleWithStruct>" />
+
+            <class name="ConstExampleWithStruct">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<ExampleWithStructCollection>" />
+
+            <class name="ExampleWithStructCollection">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<ExampleWithStructObj>" />
+
+            <class name="ExampleWithStructObj">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<EventInfoData>" />
+
+            <class name="EventInfoData">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<EventInfo>" />
+
+            <class name="EventInfo">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<ConstEventInfo>" />
+
+            <class name="ConstEventInfo">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<EventInfoCollection>" />
+
+            <class name="EventInfoCollection">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<EventInfoObj>" />
+
+            <class name="EventInfoObj">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<ExampleWithArraymeData>" />
+
+            <class name="ExampleWithArraymeData">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<ExampleWithArrayme>" />
+
+            <class name="ExampleWithArrayme">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<ConstExampleWithArrayme>" />
+
+            <class name="ConstExampleWithArrayme">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<ExampleWithArraymeCollection>" />
+
+            <class name="ExampleWithArraymeCollection">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+          <class name="std::vector<ExampleWithArraymeObj>" />
+
+            <class name="ExampleWithArraymeObj">
+              <field name="m_registry" transient="true"/>
+              <field name="m_container" transient="true"/>
+            </class>
+
+
+    </selection>
+</lcgdict>
