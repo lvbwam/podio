@@ -75,16 +75,25 @@ namespace podio {
         branch->GetEntry(m_eventNumber);
       }
     }*/
+    //std::cout<<4<<std::endl;
     if (name == "structs") {
         std::string line;
+        //std::string line1;
         int id,xread,yread;
-        
+        //*m_file >> line1;
+      //std::cout<< line1 <<std::endl;
+      
+      
         for (int i=0; i < 8*m_eventNumber+6; i++) {
+            
+             //std::cout<<5<<std::endl;
             getline (*m_file,line);
+            
         }
-        *m_file >> id >> xread >> yread;
+        (*m_file) >> id >> xread >> yread;
         m_file->seekg(0);
         ExampleWithStructCollection* collection = new  ExampleWithStructCollection() ;
+        //std::cout<<6<<std::endl;
         m_inputs.emplace_back(std::make_pair(collection,name));
         NotSoSimpleStruct b;
         b.data.x = xread;
@@ -99,17 +108,20 @@ namespace podio {
     
   }
 
+    std::ifstream newFile;
   void ASCIIReader::openFile(const std::string& filename){
     /*m_file = TFile::Open(filename.c_str(),"READ","data file");
     if (m_file->IsZombie()) {
       exit(-1);
     }
     m_eventTree = static_cast<TTree*>( m_file->Get("events") );*/
-    
-    std::ifstream newFile( filename , std::ios::in );
+    newFile.open( filename , std::ios::in );
     if ( !newFile ) {
       exit( -1 );
     }
+      //std::string line1;
+      //newFile >> line1;
+      //std::cout<< line1 <<std::endl;
       m_file = &newFile;
 
     readCollectionIDTable();

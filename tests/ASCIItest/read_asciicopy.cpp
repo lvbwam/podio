@@ -32,10 +32,10 @@ void processEvent(podio::EventStore& store, bool verboser, unsigned eventNum) {
   } else {
     throw std::runtime_error("Collection 'arrays' should be present");
   }*/
-    
     auto& structs = store.get<ExampleWithStructCollection>("structs");
     if (structs.isValid() && structs.size() != 0) {
         auto structure = structs[0];
+        std::cout << structure.mystruct().data.x << std::endl;
         if (structure.mystruct().data.x != eventNum) {
             throw std::runtime_error("structs not properly set.");
         }
@@ -47,17 +47,21 @@ void processEvent(podio::EventStore& store, bool verboser, unsigned eventNum) {
     }
 }
 
-int main(){
+int main(int argc, char *argv[]){
+    if ( argc != 2 ) {// argc should be 2 for correct execution
+        // We print argv[0] assuming it is the program name
+        std::cout<<"usage: "<< argv[0] <<" <filename>\n";
+        }
   auto reader = podio::ASCIIReader();
   auto store = podio::EventStore();
-  reader.openFile("example.txt");
+  reader.openFile( argv[1] );
   store.setReader(&reader);
 
   bool verbose = true;
 
   unsigned nEvents = reader.getEntries();
   for(unsigned i=0; i<nEvents; ++i) {
-    if(i%1000==0)
+    if(i%20==0)
       std::cout<<"reading event "<<i<<std::endl;
     processEvent(store, true, i);
     store.clear();

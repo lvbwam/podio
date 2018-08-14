@@ -76,6 +76,7 @@ class ASCIIReader : public IReader {
     //std::map<std::string, std::pair<TClass*,TClass*> > m_storedClasses;
     CollectionIDTable* m_table;
     //TFile* m_file;
+    //std::ifstream* anewFile;
     std::ifstream* m_file;
     //TTree* m_eventTree;
     unsigned m_eventNumber;
