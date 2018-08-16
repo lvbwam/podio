@@ -77,30 +77,42 @@ namespace podio {
     }*/
     //std::cout<<4<<std::endl;
     if (name == "structs") {
-        std::string line;
+        std::string line,name;
         //std::string line1;
-        int id,xread,yread;
+        int id,xread,yread,number;
+        NotSoSimpleStruct b;
+        ExampleWithStructCollection* collection = new  ExampleWithStructCollection() ;
+        m_inputs.emplace_back(std::make_pair(collection,name));
         //*m_file >> line1;
       //std::cout<< line1 <<std::endl;
       
       
-        for (int i=0; i < 8*m_eventNumber+6; i++) {
-            
+        //for (int i=0; i < 8*m_eventNumber+6; i++) {
+          for (int i=0; i < 4; i++) {
              //std::cout<<5<<std::endl;
             getline (*m_file,line);
             
         }
+        (*m_file) >> name >> number;
+        getline (*m_file,line);
+        getline (*m_file,line);
+        
+
+        for (int i=0; i < number; i++) {
         (*m_file) >> id >> xread >> yread;
-        m_file->seekg(0);
-        ExampleWithStructCollection* collection = new  ExampleWithStructCollection() ;
+        //m_file->seekg(0);
+        
         //std::cout<<6<<std::endl;
-        m_inputs.emplace_back(std::make_pair(collection,name));
-        NotSoSimpleStruct b;
+
+        
         b.data.x = xread;
         b.data.y = yread;
         auto structure = ExampleWithStruct(b);
         collection->push_back(structure);
         collection->setID(id);
+        
+    }
+        getline (*m_file,line);
         collection->prepareAfterRead();
         return collection;
     }
@@ -164,7 +176,7 @@ namespace podio {
 
   unsigned ASCIIReader::getEntries() const {
     //return m_eventTree->GetEntries();
-      return 200;
+      return 2000000;
   }
 
   void ASCIIReader::goToEvent(unsigned eventNumber) {

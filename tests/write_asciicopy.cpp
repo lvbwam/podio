@@ -25,7 +25,7 @@ int main(){
   //writer.registerForWrite<ExampleWithArraymeCollection>("arrays");
   writer.registerForWrite<ExampleWithStructCollection>("structs");
 
-  unsigned nevents=200;
+  unsigned nevents=2000000;
 
   for(unsigned i=0; i<nevents; ++i) {
     if(i % 1000 == 0) {
@@ -54,6 +54,12 @@ int main(){
       b.data.y = static_cast<int>(i) + 1;
       auto structure = ExampleWithStruct(b);
       structs.push_back(structure);
+      
+      NotSoSimpleStruct c;
+      c.data.x = static_cast<int>(i) + 2;
+      c.data.y = static_cast<int>(i) + 3;
+      auto structure1 = ExampleWithStruct(c);
+      structs.push_back(structure1);
       
     writer.writeEvent();
     store.clearCollections();

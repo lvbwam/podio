@@ -17,7 +17,7 @@ int glob = 0;
 
 void processEvent(podio::EventStore& store, bool verboser, unsigned eventNum) {
 
-  auto& arrays = store.get<ExampleWithArraymeCollection>("arrays");
+  /*auto& arrays = store.get<ExampleWithArraymeCollection>("arrays");
   if (arrays.isValid() && arrays.size() != 0) {
     auto array = arrays[0];
     if (array.myArray(1) != eventNum) {
@@ -31,7 +31,7 @@ void processEvent(podio::EventStore& store, bool verboser, unsigned eventNum) {
     }
   } else {
     throw std::runtime_error("Collection 'arrays' should be present");
-  }
+  }*/
     
     auto& structs = store.get<ExampleWithStructCollection>("structs");
     if (structs.isValid() && structs.size() != 0) {
@@ -41,6 +41,14 @@ void processEvent(podio::EventStore& store, bool verboser, unsigned eventNum) {
         }
         if (structure.mystruct().data.y != eventNum + 1) {
             throw std::runtime_error("structs not properly set.");
+            
+            structure = structs[1];
+            if (structure.mystruct().data.x != eventNum + 2) {
+                throw std::runtime_error("structs not properly set.");
+            }
+            if (structure.mystruct().data.y != eventNum + 3) {
+                throw std::runtime_error("structs not properly set.");
+            }
         }
     } else {
         throw std::runtime_error("Collection 'structss' should be present");
