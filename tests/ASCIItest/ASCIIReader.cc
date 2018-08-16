@@ -88,6 +88,7 @@ namespace podio {
       
       
         //for (int i=0; i < 8*m_eventNumber+6; i++) {
+        getline (*m_file,line);
           for (int i=0; i < 4; i++) {
              //std::cout<<5<<std::endl;
             getline (*m_file,line);
@@ -176,7 +177,9 @@ namespace podio {
 
   unsigned ASCIIReader::getEntries() const {
     //return m_eventTree->GetEntries();
-      return 2000000;
+      int entries;
+      (*m_file) >> entries;
+      return entries;
   }
 
   void ASCIIReader::goToEvent(unsigned eventNumber) {

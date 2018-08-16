@@ -5,11 +5,12 @@
 
 namespace podio {
 
-  ASCIIWriter::ASCIIWriter(const std::string& filename, EventStore* store) :
+  ASCIIWriter::ASCIIWriter(const std::string& filename, EventStore* store, int evenum) :
     m_filename(filename),
     m_store(store),m_file( new std::ofstream ){
 
     m_file->open( filename , std::ofstream::binary  ) ;
+    *m_file << evenum << "\n";
   }
 
   ASCIIWriter::~ASCIIWriter(){

@@ -42,7 +42,7 @@ typedef std::map< std::string, ColWriterBase* > FunMap ;
   class ASCIIWriter {
 
   public:
-    ASCIIWriter(const std::string& filename, EventStore* store);
+    ASCIIWriter(const std::string& filename, EventStore* store, int evenum);
     ~ASCIIWriter();
 
     template<typename T>

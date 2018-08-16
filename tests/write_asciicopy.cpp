@@ -11,12 +11,20 @@
 #include "podio/EventStore.h"
 #include "podio/ASCIIWriter.h"
 
-int main(){
+int main(int argc, char *argv[]){
+    
+    if ( argc != 2 ) {// argc should be 2 for correct execution
+        // We print argv[0] assuming it is the program name
+        std::cout<<"usage: "<< argv[0] <<" <filename>\n";
+    }
 
   std::cout<<"start processing"<<std::endl;
+    
+    
+  int nevents= atoi(argv[1]);
 
   auto store = podio::EventStore();
-  auto writer = podio::ASCIIWriter("example.txt", &store);
+  auto writer = podio::ASCIIWriter("example.txt", &store, nevents);
 
   auto& info       = store.create<EventInfoCollection>("info");
   //auto& arrays     = store.create<ExampleWithArraymeCollection>("arrays");
@@ -25,7 +33,7 @@ int main(){
   //writer.registerForWrite<ExampleWithArraymeCollection>("arrays");
   writer.registerForWrite<ExampleWithStructCollection>("structs");
 
-  unsigned nevents=2000000;
+  
 
   for(unsigned i=0; i<nevents; ++i) {
     if(i % 1000 == 0) {

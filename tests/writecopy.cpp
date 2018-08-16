@@ -12,9 +12,19 @@
 #include "podio/EventStore.h"
 #include "podio/ROOTWriter.h"
 
-int main(){
+int main(int argc, char *argv[]){
+    
+    if ( argc != 2 ) {// argc should be 2 for correct execution
+        // We print argv[0] assuming it is the program name
+        std::cout<<"usage: "<< argv[0] <<" <filename>\n";
+    }
+
 
   std::cout<<"start processing"<<std::endl;
+    
+  int nevents= atoi(argv[1]);
+
+    
 
   auto store = podio::EventStore();
   auto writer = podio::ROOTWriter("example.root", &store);
@@ -26,7 +36,7 @@ int main(){
   //writer.registerForWrite("arrays");
   writer.registerForWrite("structs");
 
-  unsigned nevents = 2000000;
+
 
   for(unsigned i=0; i<nevents; ++i) {
     if(i % 1000 == 0) {

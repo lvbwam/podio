@@ -47,10 +47,10 @@ set_property(TEST generate-edm PROPERTY ENVIRONMENT LD_LIBRARY_PATH=${CMAKE_INST
 #[[add_test(NAME write COMMAND write)
 set_property(TEST write PROPERTY ENVIRONMENT LD_LIBRARY_PATH=${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/tests:$ENV{LD_LIBRARY_PATH})]]
 
-add_test(NAME writecopy COMMAND writecopy)
+add_test(NAME writecopy COMMAND writecopy 100000)
 set_property(TEST writecopy PROPERTY ENVIRONMENT LD_LIBRARY_PATH=${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/tests:$ENV{LD_LIBRARY_PATH})
 
-add_test(NAME write_asciicopy COMMAND write_asciicopy)
+add_test(NAME write_asciicopy COMMAND write_asciicopy 100000)
 set_property(TEST write_asciicopy PROPERTY ENVIRONMENT LD_LIBRARY_PATH=${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/tests:$ENV{LD_LIBRARY_PATH})
 
 #[[add_test(NAME read COMMAND read)
