@@ -25,7 +25,7 @@ namespace podio {
       
  
       const std::string& name = m_collectionNames[i++] ;
-      std::cout << " writing collection " << name << std::endl ;
+      //std::cout << " writing collection " << name << std::endl ;
       
       *m_file << name << "  " ;
 
