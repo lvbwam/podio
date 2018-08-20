@@ -33,7 +33,7 @@ void processEvent(podio::EventStore& store, bool verboser, unsigned eventNum) {
     throw std::runtime_error("Collection 'arrays' should be present");
   }*/
     
-    auto& structs = store.get<ExampleWithStructCollection>("structs");
+   /* auto& structs = store.get<ExampleWithStructCollection>("structs");
     if (structs.isValid() && structs.size() != 0) {
         auto structure = structs[0];
         if (structure.mystruct().data.x != eventNum) {
@@ -49,12 +49,23 @@ void processEvent(podio::EventStore& store, bool verboser, unsigned eventNum) {
             if (structure.mystruct().data.y != eventNum + 3) {
                 throw std::runtime_error("structs not properly set.");
             }
-        }
-    } else {
+        }*/
+    
+    auto& structs = store.get<ExampleWithStructCollection>("structs");
+    if (structs.isValid() && structs.size() != 0) {
+        for (int i = 0; i<100; i++) {
+            auto structure = structs[i];
+            //std::cout << structure.mystruct().data.x << std::endl;
+            if (structure.mystruct().data.x - (eventNum + i)/3.0 > 0.5 || structure.mystruct().data.x - (eventNum + i)/3.0 < -0.5 ) {
+                throw std::runtime_error("structs not properly set.");
+            }
+            if (structure.mystruct().data.y - (eventNum + i + 1)/3.0 > 0.5 || structure.mystruct().data.y - (eventNum + i + 1)/3.0 < -0.5 ) {
+                throw std::runtime_error("structs not properly set.");
+            }
+        } }else {
         throw std::runtime_error("Collection 'structss' should be present");
     }
 }
-
 int main(){
   auto reader = podio::ROOTReader();
   auto store = podio::EventStore();

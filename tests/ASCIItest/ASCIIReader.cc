@@ -79,7 +79,8 @@ namespace podio {
     if (name == "structs") {
         std::string line,name;
         //std::string line1;
-        int id,xread,yread,number;
+        int id,number;
+        float xread,yread;
         NotSoSimpleStruct b;
         ExampleWithStructCollection* collection = new  ExampleWithStructCollection() ;
         m_inputs.emplace_back(std::make_pair(collection,name));

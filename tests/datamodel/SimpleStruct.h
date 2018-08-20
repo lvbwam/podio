@@ -7,8 +7,8 @@
 
 class SimpleStruct {
 public:
-  int x;
-  int y;
+  float x;
+  float y;
 
  SimpleStruct() : x(0),y(0) {} SimpleStruct( const int* v) : x(v[0]),y(v[1]) {} 
 };

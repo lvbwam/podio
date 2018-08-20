@@ -38,7 +38,7 @@ int main(int argc, char *argv[]){
 
 
 
-  for(unsigned i=0; i<nevents; ++i) {
+  for(int i=0; i<nevents; ++i) {
     if(i % 1000 == 0) {
       std::cout << "processing event " << i << std::endl;
     }
@@ -60,17 +60,16 @@ int main(int argc, char *argv[]){
     //array.arrayStruct(a);
     //arrays.push_back(array);
 
-    NotSoSimpleStruct b;
-    b.data.x = static_cast<int>(i);
-    b.data.y = static_cast<int>(i) + 1;
-    auto structure = ExampleWithStruct(b);
-    structs.push_back(structure);
+      NotSoSimpleStruct b[100];
+      b[0].data.x = (i)/3.0;
+      b[0].data.y = (i+1)/3.0;
+      structs.push_back(b[0]);
       
-    NotSoSimpleStruct c;
-    c.data.x = static_cast<int>(i) + 2;
-    c.data.y = static_cast<int>(i) + 3;
-    auto structure1 = ExampleWithStruct(c);
-    structs.push_back(structure1);
+      for (int j = 1; j<100; j++) {
+          b[j].data.x = (i+j)/3.0;
+          b[j].data.y = (i+j+1)/3.0;
+          structs.push_back(b[j]);
+      }
     
     writer.writeEvent();
     store.clearCollections();
