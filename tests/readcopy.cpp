@@ -56,10 +56,10 @@ void processEvent(podio::EventStore& store, bool verboser, unsigned eventNum) {
         for (int i = 0; i<100; i++) {
             auto structure = structs[i];
             //std::cout << structure.mystruct().data.x << std::endl;
-            if (structure.mystruct().data.x - (eventNum + i)/3.0 > 0.5 || structure.mystruct().data.x - (eventNum + i)/3.0 < -0.5 ) {
+            if (structure.mystruct().data.x - (eventNum + i)/3.0 > 0.1 || structure.mystruct().data.x - (eventNum + i)/3.0 < -0.1 ) {
                 throw std::runtime_error("structs not properly set.");
             }
-            if (structure.mystruct().data.y - (eventNum + i + 1)/3.0 > 0.5 || structure.mystruct().data.y - (eventNum + i + 1)/3.0 < -0.5 ) {
+            if (structure.mystruct().data.y - (eventNum + i + 1)/3.0 > 0.1 || structure.mystruct().data.y - (eventNum + i + 1)/3.0 < -0.1 ) {
                 throw std::runtime_error("structs not properly set.");
             }
         } }else {
