@@ -2,6 +2,8 @@
 add_executable(ASCIIReader read_asciicopy.cpp ASCIIReader.cc)
 target_include_directories(ASCIIReader PRIVATE ${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/tests/datamodel)
 
+set_target_properties(ASCIIReader PROPERTIES COMPILE_FLAGS "-pg")
+set_target_properties(ASCIIReader PROPERTIES LINK_FLAGS "-pg")
 target_link_libraries(ASCIIReader TestDataModelDict TestDataModel podio)
 install(TARGETS ASCIIReader DESTINATION tests)
 

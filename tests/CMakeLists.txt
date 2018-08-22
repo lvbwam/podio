@@ -16,12 +16,16 @@ file(GLOB sources_utils utilities/*.cc)
 file(GLOB headers_utils utilities/*.h)
 
 add_library(TestDataModel SHARED ${sources} ${sources_utils} ${headers} ${headers_utils})
+set_target_properties(TestDataModel PROPERTIES COMPILE_FLAGS "-pg")
+set_target_properties(TestDataModel PROPERTIES LINK_FLAGS "-pg")
 target_link_libraries(TestDataModel podio )
 install(TARGETS TestDataModel DESTINATION tests)
 
 REFLEX_GENERATE_DICTIONARY(TestDataModel ${headers} SELECTION src/selection.xml)
 add_library(TestDataModelDict SHARED TestDataModel.cxx)
 add_dependencies(TestDataModelDict TestDataModel-dictgen)
+set_target_properties(TestDataModelDict PROPERTIES COMPILE_FLAGS "-pg")
+set_target_properties(TestDataModelDict PROPERTIES LINK_FLAGS "-pg")
 target_link_libraries(TestDataModelDict TestDataModel podio )
 install(TARGETS TestDataModelDict DESTINATION tests)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/TestDataModelDict.rootmap DESTINATION tests)
@@ -33,6 +37,8 @@ file(GLOB executables RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cpp)
 foreach( sourcefile ${executables} )
   string( REPLACE ".cpp" "" name ${sourcefile} )
   add_executable( ${name} ${sourcefile} )
+  set_target_properties(${name} PROPERTIES COMPILE_FLAGS "-pg")
+  set_target_properties(${name} PROPERTIES LINK_FLAGS "-pg")
   target_link_libraries( ${name} TestDataModelDict )
   install(TARGETS ${name} DESTINATION tests)
 endforeach( sourcefile ${executables} )
@@ -47,10 +53,10 @@ set_property(TEST generate-edm PROPERTY ENVIRONMENT LD_LIBRARY_PATH=${CMAKE_INST
 #[[add_test(NAME write COMMAND write)
 set_property(TEST write PROPERTY ENVIRONMENT LD_LIBRARY_PATH=${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/tests:$ENV{LD_LIBRARY_PATH})]]
 
-add_test(NAME writecopy COMMAND writecopy 100000)
+add_test(NAME writecopy COMMAND writecopy 1000)
 set_property(TEST writecopy PROPERTY ENVIRONMENT LD_LIBRARY_PATH=${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/tests:$ENV{LD_LIBRARY_PATH})
 
-add_test(NAME write_asciicopy COMMAND write_asciicopy 100000)
+add_test(NAME write_asciicopy COMMAND write_asciicopy 1000)
 set_property(TEST write_asciicopy PROPERTY ENVIRONMENT LD_LIBRARY_PATH=${CMAKE_INSTALL_PREFIX}/lib:${CMAKE_INSTALL_PREFIX}/tests:$ENV{LD_LIBRARY_PATH})
 
 #[[add_test(NAME read COMMAND read)

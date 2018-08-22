@@ -9,6 +9,8 @@ target_link_libraries(podioDict podio ${ROOT_LIBRARIES})
 install(TARGETS podioDict DESTINATION lib)
 
 add_library(podio SHARED ${sources})
+set_target_properties(podio PROPERTIES COMPILE_FLAGS "-pg")
+set_target_properties(podio PROPERTIES LINK_FLAGS "-pg")
 target_link_libraries(podio ${ROOT_LIBRARIES})
 install(TARGETS podio DESTINATION lib)
 
