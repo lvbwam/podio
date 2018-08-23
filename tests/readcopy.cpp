@@ -67,7 +67,6 @@ void processEvent(podio::EventStore& store, bool verboser, unsigned eventNum) {
     }
 }
 int main(){
-    for (int k=0; k < 10000; k++) {
   auto reader = podio::ROOTReader();
   auto store = podio::EventStore();
   reader.openFile("example.root");
@@ -82,6 +81,6 @@ int main(){
     processEvent(store, true, i);
     store.clear();
     reader.endOfEvent();
-  }}
+  }
   return 0;
 }
